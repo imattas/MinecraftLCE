@@ -1,5 +1,4 @@
 #pragma once
-using namespace std;
 
 #define MAX_DISPLAYNAME_LENGTH 128
 #define MAX_SAVEFILENAME_LENGTH 32
@@ -396,7 +395,7 @@ public:
 	void						Suspend();
 	bool						Suspended();
 
-	void						SetSaveDeviceSelected(unsigned int uiPad,bool bSelected) {}
+	void						SetSaveDeviceSelected(unsigned int iPad,bool bSelected) {}
 	bool						GetSaveDeviceSelected(unsigned int iPad) { return true; }
 	void						ClearDLCOffers();
 	bool						DeleteTMSFile(int iQuadrant,eGlobalStorage eStorageFacility,LPWSTR wszFilename);
@@ -407,7 +406,7 @@ public:
 	eTitleStorageState			TMSPP_ReadFile(int iQuadrant,C4JStorage::eGlobalStorage eStorageFacility,C4JStorage::eTMS_FILETYPEVAL eFileTypeVal,LPWSTR wszFilename,int( *Func)(LPVOID,int,int,LPVOID, WCHAR *),LPVOID lpParam, int iUserData);
 	eTitleStorageState			TMSPP_DeleteFile(int iQuadrant,C4JStorage::eGlobalStorage eStorageFacility,C4JStorage::eTMS_FILETYPEVAL eFileTypeVal,LPWSTR wszFilename,int( *Func)(LPVOID,int,int),LPVOID lpParam, int iUserData);
 	eTitleStorageState			TMSPP_ReadFileList(int iPad,C4JStorage::eGlobalStorage eStorageFacility,int( *Func)(LPVOID,int,int,LPVOID,WCHAR *)=nullptr,LPVOID lpParam=nullptr, int iUserData=0);
-	bool						TMSPP_InFileList(eGlobalStorage eStorageFacility, int iPad,const wstring &Filename);
+	bool						TMSPP_InFileList(eGlobalStorage eStorageFacility, int iPad,const std::wstring &Filename);
 	eTitleStorageState			TMSPP_GetTitleStorageState(int iPad);
 	void						TMSPP_ClearTitleStorageState(int iPad);
 
