@@ -350,12 +350,16 @@ set(_MINECRAFT_CLIENT_WINDOWS_WINDOWS64
 )
 source_group("Windows64" FILES ${_MINECRAFT_CLIENT_WINDOWS_WINDOWS64})
 
-set(_MINECRAFT_CLIENT_WINDOWS_WINDOWS64_4JLIBS_INC
-  "${BASE_DIR}/4JLibs/inc/4J_Input.h"
-  "${BASE_DIR}/4JLibs/inc/4J_Profile.h"
-  "${BASE_DIR}/4JLibs/inc/4J_Render.h"
-  "${BASE_DIR}/4JLibs/inc/4J_Storage.h"
-)
+if(EXISTS "${BASE_DIR}/4JLibs/inc/4J_Input.h")
+  set(_MINECRAFT_CLIENT_WINDOWS_WINDOWS64_4JLIBS_INC
+    "${BASE_DIR}/4JLibs/inc/4J_Input.h"
+    "${BASE_DIR}/4JLibs/inc/4J_Profile.h"
+    "${BASE_DIR}/4JLibs/inc/4J_Render.h"
+    "${BASE_DIR}/4JLibs/inc/4J_Storage.h"
+  )
+else()
+  set(_MINECRAFT_CLIENT_WINDOWS_WINDOWS64_4JLIBS_INC)
+endif()
 source_group("Windows64/4JLibs/inc" FILES ${_MINECRAFT_CLIENT_WINDOWS_WINDOWS64_4JLIBS_INC})
 
 set(_MINECRAFT_CLIENT_WINDOWS_WINDOWS64_GAMECONFIG
