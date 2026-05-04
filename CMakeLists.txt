@@ -76,7 +76,9 @@ list(APPEND MINECRAFT_SHARED_DEFINES ${PLATFORM_DEFINES})
 # ---
 # Sources
 # ---
-add_subdirectory("Minecraft.Client/${PLATFORM_NAME}/4JLibs")
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/${PLATFORM_NAME}/4JLibs/CMakeLists.txt")
+  add_subdirectory("Minecraft.Client/${PLATFORM_NAME}/4JLibs")
+endif()
 
 add_subdirectory(Minecraft.World)
 add_subdirectory(Minecraft.Client)
